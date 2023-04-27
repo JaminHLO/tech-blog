@@ -1,5 +1,21 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body {
+  background-color: black;
+}
+
+header, .blog {
+  border: 2px solid #131212;
+  color: rgb(179, 218, 179);
+  background-color: rgb(59, 29, 29);
+}
+
+h1 {
+  color: rgb(59, 29, 29);
+  background-color: rgb(179, 218, 179); 
+}
+
+a, div {
+  color: rgb(179, 218, 179);
+  background-color: rgb(59, 29, 29);
 }
 
 .no-button {
@@ -17,8 +33,3 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
