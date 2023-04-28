@@ -6,12 +6,11 @@
     <div>
       <h2>{{description}}</h2>
       <p class="fs-3">Posted by {{user.name}} on {{format_date date_posted}}</p>
-    </div>        
-    {{!-- <button type="button" class="btn btn-sm btn-primary btn-update" update-id="{{id}}">UPDATE POST</button> --}}
-    {{!-- <div> --}}
+    </div>     
+    {{#if my_blog_post}}   
       <a href="/update/{{id}}" class="btn btn-primary">UPDATE POST</a>
-    {{!-- </div> --}}
-    <button type="button" class="btn btn-sm btn-danger" delete-id="{{id}}">DELETE</button>
+      <button type="button" class="btn btn-sm btn-danger" delete-id="{{id}}">DELETE</button>
+    {{/if}}
   </div>
 </div>
 {{#each comments as |comment| }}
