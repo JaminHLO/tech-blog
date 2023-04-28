@@ -3,7 +3,7 @@ body {
 }
 
 header, .blog {
-  border: 2px solid #131212;
+  border: 2px solid rgb(179, 218, 179);
   color: rgb(179, 218, 179);
   background-color: rgb(59, 29, 29);
 }
@@ -25,7 +25,7 @@ a, div {
   cursor: pointer;
   color: #1b89bc;
   text-decoration: none;
-  font-size: 100%;
+  /* font-size: 100%; */
 }
 
 .no-button:hover {

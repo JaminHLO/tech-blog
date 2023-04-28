@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -17,10 +17,6 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    // console.log("vvvvvvvvvvvvvvvvvvvvv");
-    // console.log(blogs);
-    // console.log("^^^^^^^^^^^^^^^^^^^^");
-
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       blogs, 
@@ -31,32 +27,60 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
+        User,
+        Comment,
       ],
     });
 
-    const blog = blogData.get({ plain: true });
+    // console.log(blogData);
 
-    // console.log("vvvvvvvvvvvvvvvvvvvvv");
+    const blog = blogData.get({ plain: true });
+    // console.log('vvvvvvvvvvvvvvvvvvvvvvv');
     // console.log(blog);
-    // // console.log(blog.user_id);
-    // // console.log(req.session.);
-    // console.log("^^^^^^^^^^^^^^^^^^^^");
+    // console.log('^^^^^^^^^^^^^^^^^^^^^^');
 
     let myBlogPost = false;
     if (req.session.user_id == blog.user_id) {
-      // console.log("it matches");
       myBlogPost = true;
     }
 
     res.render('blog', {
+      ...blog,
+      my_blog_post: myBlogPost,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// create route for updating a blog entry
+router.get('/update/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        User,
+        Comment,
+      ],
+    });
+
+    // console.log(blogData);
+
+    const blog = blogData.get({ plain: true });
+    // console.log('vvvvvvvvvvvvvvvvvvvvvvv');
+    // console.log(blog);
+    // console.log('^^^^^^^^^^^^^^^^^^^^^^');
+
+    let myBlogPost = false;
+    if (req.session.user_id == blog.user_id) {
+      myBlogPost = true;
+    }
+
+    res.render('update', {
       ...blog,
       my_blog_post: myBlogPost,
       logged_in: req.session.logged_in
@@ -105,6 +129,8 @@ router.get('/create', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
