@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Use withAuth middleware to prevent unauthorized access to blog creation
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
@@ -34,6 +35,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
+// Use withAuth middleware to prevent unauthorized access to delete
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.destroy({

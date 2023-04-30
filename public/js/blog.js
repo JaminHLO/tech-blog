@@ -1,3 +1,5 @@
+
+// function used to create comment
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -24,12 +26,10 @@ const newFormHandler = async (event) => {
   }
 };
 
-const updateBlog = async (event) => {
-  const id = event.target.getAttribute('update-id');
-  console.log(`going to update ${id}`);
+// update entry now handled from route call
 
-}
 
+// function used to delete blog entry
 const deleteBlog = async (event) => {
   if (event.target.hasAttribute('delete-id')) {
     const id = event.target.getAttribute('delete-id');
@@ -46,14 +46,12 @@ const deleteBlog = async (event) => {
   } 
 }
 
+// listen for submit button click for  comment entry
 document
   .querySelector('.new-comment-form')
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('.btn-update')
-//   .addEventListener('click', updateBlog);
-
+// listen for delete button click for blog delete
 document
   .querySelector('.btn-danger')
   .addEventListener('click', deleteBlog);

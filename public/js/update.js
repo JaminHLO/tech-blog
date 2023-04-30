@@ -1,3 +1,4 @@
+// function for updating a blog entry
 const updateBlog = async (event) => {
   event.preventDefault();
 

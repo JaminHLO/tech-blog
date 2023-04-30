@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get a blog by a specific username
 router.get('/blog/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -90,7 +91,7 @@ router.get('/update/:id', withAuth, async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// Use withAuth middleware to prevent unauthorized access to dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -110,7 +111,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// Use withAuth middleware to prevent unauthorized access to blog creation
 router.get('/create', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID

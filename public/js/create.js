@@ -1,3 +1,4 @@
+// function for creating a new blog entry
 const newFormHandler = async (event) => {
   event.preventDefault();
 
