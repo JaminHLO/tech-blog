@@ -26,8 +26,8 @@ Once you begin the program, you will be prompted to login or create an account w
 If you click on one of your own Blogs, you will have the additional options to either edit or delete your Blog. 
 
 Screenshots of the program in use:
-![tech blog initial screen](public/assets/images/tb-ss-01.jpg)<br> 
-![view of users blog post showing edit and delete buttons as well as a comment](public/assets/images/tb-ss-02.jpg)
+![tech blog initial screen](public/images/tb-ss-01.jpg)<br> 
+![view of users blog post showing edit and delete buttons as well as a comment](public/images/tb-ss-02.jpg)
 
 ## License
 
