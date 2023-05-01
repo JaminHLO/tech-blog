@@ -29,9 +29,6 @@ Screenshots of the program in use:
 ![tech blog initial screen](public/images/tb-ss-01.jpg)<br> 
 ![view of users blog post showing edit and delete buttons as well as a comment](public/images/tb-ss-02.jpg)
 
-App is deployed to Heroku here:
-![link to deployed app on Heroku](https://calm-headland-52008.herokuapp.com/)
-
 ## License
 
 This Project is covered by the following license: GNU General Public License v3.0.
@@ -44,7 +41,7 @@ Instruction was provided by Instructor Saurav with assistance from TAs Andreas #
 
 ## Tests
 
-The Project may tested using the installation instructions above and running 'npm run start'and then using Insomnia and/or MySQL Workbench 6.0 CE to confirm and maniulate the status of the database. 
+The Project may tested using the installation instructions above and running 'npm run start' and then opening <http://localhost:3001> in any browser. The live site is available at: <https://calm-headland-52008.herokuapp.com/>.
 
 ## Questions
 
